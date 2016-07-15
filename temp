@@ -1,0 +1,40 @@
+# Screen Saver
+rundll32 user32.dll,LockWorkStation
+open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app
+gnome-screensaver-command -a
+http://fontawesome.io/icon/desktop/
+
+# Lock Computer
+rundll32 user32.dll,LockWorkStation # win32
+pmset displaysleepnow # mac
+gnome-screensaver-command -l # linux
+http://fontawesome.io/icon/lock/ # icon
+
+# Shutdown
+shutdown -s
+osascript -e 'tell app "System Events" to shut down'
+systemctl poweroff
+http://fontawesome.io/icon/power-off/
+
+# Logoff
+shutdown -l
+osascript -e 'tell application "System Events" to log out'
+logout
+http://fontawesome.io/icon/sign-out/
+
+# Restart
+shutdown -r
+osascript -e 'tell app "System Events" to restart'
+systemctl reboot
+http://fontawesome.io/icon/undo/
+
+# List Applications
+tasklist
+ps aux
+ps aux
+http://fontawesome.io/icon/folder-open/
+
+# Quit Application
+taskkill /IM <process.exe>
+kill <pid>
+kill <pid>
