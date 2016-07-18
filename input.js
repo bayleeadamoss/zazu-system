@@ -1,7 +1,9 @@
+'use strict'
+
 let commands = require('./actions')
 
 let main = (input) => {
-  const pattern = new RegExp(input, 'i') // /lo/i
+  const pattern = new RegExp(input, 'i')
   let matches = commands.filter((command) => {
     return command.title.match(pattern)
   })

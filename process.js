@@ -1,4 +1,6 @@
-const exec = require('child_process').exec;
+'use strict'
+
+const exec = require('child_process').exec
 
 let os
 
