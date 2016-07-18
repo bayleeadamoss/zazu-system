@@ -11,7 +11,7 @@ module.exports = {
         id: 1,
         type: 'RootScript',
         respondsTo: (input) => {
-          return true
+          return input.length >= 2
         },
         script: 'node input.js "{query}"',
         connections: [2],
