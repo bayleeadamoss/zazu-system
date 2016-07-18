@@ -5,8 +5,9 @@ let main = (input) => {
   let matches = commands.filter((command) => {
     return command.title.match(pattern)
   })
-  console.log(matches)
+  console.log(
+    JSON.stringify(matches)
+  )
 }
 
 main(process.argv.slice(-1)[0])
-

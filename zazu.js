@@ -13,7 +13,7 @@ module.exports = {
         respondsTo: (input) => {
           return true
         },
-        script: 'node listCommands.js "{query}"',
+        script: 'node input.js "{query}"',
         connections: [2],
       },
     ],
