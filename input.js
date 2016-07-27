@@ -1,15 +1,20 @@
-'use strict'
+module.exports = (pluginContext) => {
+  let commands = require('./actions')
+  return {
+    respondsTo: (query) => {
+      return query.length >= 2
+    },
+    search: (query, env = {}) => {
+      return new Promise((resolve, reject) => {
 
-let commands = require('./actions')
+        const pattern = new RegExp(query, 'i')
 
-let main = (input) => {
-  const pattern = new RegExp(input, 'i')
-  let matches = commands.filter((command) => {
-    return command.title.match(pattern)
-  })
-  console.log(
-    JSON.stringify(matches)
-  )
+        let matches = commands.filter((command) => {
+          return command.title.match(pattern)
+        })
+
+        resolve(matches)
+      })
+    },
+  }
 }
-
-main(process.argv.slice(-1)[0])

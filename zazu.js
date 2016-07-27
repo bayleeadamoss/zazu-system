@@ -8,20 +8,17 @@ module.exports = {
   blocks: {
     input: [
       {
-        id: 1,
+        id: 'input',
         type: 'RootScript',
-        respondsTo: (input) => {
-          return input.length >= 2
-        },
-        script: 'node input.js "{query}"',
-        connections: [2],
+        script: 'input.js',
+        connections: ['process'],
       },
     ],
     output: [
       {
-        id: 2,
+        id: 'process',
         type: 'UserScript',
-        script: 'node process.js {value}',
+        script: 'process.js',
       }
     ],
   },

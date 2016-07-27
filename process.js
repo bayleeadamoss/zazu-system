@@ -1,5 +1,3 @@
-'use strict'
-
 const exec = require('child_process').exec
 
 let os
@@ -67,6 +65,10 @@ let commands = {
   }
 }
 
-let command = process.argv.slice(-1)[0]
-
-exec(commands[os][command]())
+module.exports = (pluginContext) => {
+  return (command) => {
+    return new Promise((resolve, reject) => {
+      exec(commands[os][command](), resolve)
+    })
+  }
+}
