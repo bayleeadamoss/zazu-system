@@ -2,7 +2,7 @@ module.exports = (pluginContext) => {
   let commands = require('./actions')
   return {
     respondsTo: (query) => {
-      return query.length >= 2
+      return query.match(/^\w{2,}$/)
     },
     search: (query, env = {}) => {
       return new Promise((resolve, reject) => {
