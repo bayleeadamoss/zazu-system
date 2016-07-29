@@ -1,25 +1,30 @@
 [
   {
+    "id": "lock",
     "icon": "fa-lock",
     "title": "Lock Computer",
     "value": "lock"
   },
   {
+    "id": "screensaver",
     "icon": "fa-desktop",
     "title": "Screen Saver",
     "value": "screensaver"
   },
   {
+    "id": "shutdown",
     "icon": "fa-power-off",
     "title": "Shutdown",
     "value": "shutdown"
   },
   {
+    "id": "logout",
     "icon": "fa-sign-out",
     "title": "Log Out",
     "value": "logout"
   },
   {
+    "id": "restart",
     "icon": "fa-undo",
     "title": "Restart",
     "value": "restart"

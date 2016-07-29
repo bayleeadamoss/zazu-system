@@ -1,10 +1,11 @@
+const commands = require('./actions')
+
 module.exports = (pluginContext) => {
-  let commands = require('./actions')
   return {
     respondsTo: (query) => {
       return query.match(/^\w{2,}$/)
     },
-    search: (query, env = {}) => {
+    search: (query) => {
       return new Promise((resolve, reject) => {
 
         const pattern = new RegExp(query, 'i')
