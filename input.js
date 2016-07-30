@@ -1,5 +1,6 @@
 const commands = require('./actions')
 
+// hello
 module.exports = (pluginContext) => {
   return {
     respondsTo: (query) => {
