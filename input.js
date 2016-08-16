@@ -8,7 +8,7 @@ module.exports = (pluginContext) => {
     search: (query) => {
       return new Promise((resolve, reject) => {
 
-        const pattern = new RegExp(query, 'i')
+        const pattern = new RegExp('^' + query, 'i')
 
         let matches = commands.filter((command) => {
           return command.title.match(pattern)
