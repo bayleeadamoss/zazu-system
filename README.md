@@ -17,13 +17,13 @@ Simply type any of these commands and click on the result you wish to action.
 ## Installing
 
 Add `tinytacoteam/zazu-system` inside of `plugins` block of your
-`~/.zazurc.js` file.
+`~/.zazurc.json` file.
 
-~~~ javascript
-module.exports = {
-  'plugins': [
-    'tinytacoteam/zazu-system',
-  ],
+~~~ json
+{
+  "plugins": [
+    "tinytacoteam/zazu-system"
+  ]
 }
 ~~~
 
