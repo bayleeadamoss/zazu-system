@@ -34,7 +34,7 @@ let commands = {
       return 'gnome-screensaver-command -a'
     },
     lock () {
-      return 'gnome-screensaver-command -l'
+      return 'dm-tool lock'
     },
     shutdown () {
       return 'systemctl poweroff'
