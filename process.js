@@ -31,10 +31,10 @@ let commands = {
   },
   linux: {
     screensaver () {
-      return 'gnome-screensaver-command -a'
+      return 'dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.SetActive boolean:true'
     },
     lock () {
-      return 'gnome-screensaver-command -l'
+      return 'dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock'
     },
     shutdown () {
       return 'systemctl poweroff'
