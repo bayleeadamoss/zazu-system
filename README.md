@@ -11,6 +11,7 @@ This has built in support to do the following actions on your computer:
 * shutdown
 * logout
 * restart
+* empty trash
 
 Simply type any of these commands and click on the result you wish to action.
 

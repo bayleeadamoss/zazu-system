@@ -1,3 +1,4 @@
+const emptyTrash = require('empty-trash')
 const exec = require('child_process').exec
 
 let os
@@ -13,54 +14,69 @@ if (process.platform === 'win32') {
 
 let commands = {
   windows: {
-    screensaver () {
-      return 'rundll32 user32.dll,LockWorkStation'
+    screensaver (resolve) {
+      exec('rundll32 user32.dll,LockWorkStation', resolve)
     },
-    lock () {
-      return 'rundll32 user32.dll,LockWorkStation'
+    lock (resolve) {
+      exec('rundll32 user32.dll,LockWorkStation', resolve)
     },
-    shutdown () {
-      return 'shutdown -s'
+    shutdown (resolve) {
+      exec('shutdown -s', resolve)
     },
-    logout () {
-      return 'shutdown -l'
+    logout (resolve) {
+      exec('shutdown -l', resolve)
     },
-    restart () {
-      return 'shutdown -r'
+    restart (resolve) {
+      exec('shutdown -r', resolve)
+    },
+    emptytrash (resolve) {
+      emptyTrash().then(() => {
+        resolve('Trash Emptied');
+      })
     }
   },
   linux: {
-    screensaver () {
-      return 'gnome-screensaver-command -a'
+    screensaver (resolve) {
+      exec('gnome-screensaver-command -a', resolve)
     },
-    lock () {
-      return 'gnome-screensaver-command -l'
+    lock (resolve) {
+      exec('gnome-screensaver-command -l', resolve)
     },
-    shutdown () {
-      return 'systemctl poweroff'
+    shutdown (resolve) {
+      exec('systemctl poweroff', resolve)
     },
-    logout () {
-      return 'logout'
+    logout (resolve) {
+      exec('logout', resolve)
     },
-    restart () {
-      return 'systemctl reboot'
+    restart (resolve) {
+      exec('systemctl reboot', resolve)
+    },
+    emptytrash (resolve) {
+      emptyTrash().then(() => {
+        resolve('Trash Emptied');
+      })
     }
   },
   mac: {
-    screensaver () {
-      return 'open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app'
+    screensaver (resolve) {
+      exec('open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app', resolve)
     },
-    lock () {
-      return 'pmset displaysleepnow'
+    lock (resolve) {
+      exec('pmset displaysleepnow', resolve)
     },
-    shutdown () {
-      return 'osascript -e \'tell app "System Events" to shut down\''
+    shutdown (resolve) {
+      exec('osascript -e \'tell app "System Events" to shut down\'', resolve)
     },
-    logout () {
-      return 'osascript -e \'tell application "System Events" to log out\''
+    logout (resolve) {
+      exec('osascript -e \'tell application "System Events" to log out\'', resolve)
     },
-    restart () {
-      return 'osascript -e \'tell app "System Events" to restart\''
+    restart (resolve) {
+      exec('osascript -e \'tell app "System Events" to restart\'', resolve)
+    },
+    emptytrash (resolve) {
+      emptyTrash().then(() => {
+        resolve('Trash Emptied');
+      })
     }
   }
 }
@@ -68,7 +84,7 @@ let commands = {
 module.exports = (pluginContext) => {
   return (command) => {
     return new Promise((resolve, reject) => {
-      exec(commands[os][command](), resolve)
+      commands[os][command](resolve)
     })
   }
 }
