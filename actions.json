@@ -28,6 +28,11 @@
     "icon": "fa-undo",
     "title": "Restart",
     "value": "restart"
+  },
+  {
+    "id": "emptytrash",
+    "icon": "fa-trash",
+    "title": "Empty Trash",
+    "value": "emptytrash"
   }
 ]
-
