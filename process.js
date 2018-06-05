@@ -59,7 +59,7 @@ let commands = {
   },
   mac: {
     screensaver (resolve) {
-      exec('open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app', resolve)
+      exec('open -a ScreenSaverEngine.app', resolve)
     },
     lock (resolve) {
       exec('/System/Library/CoreServices/Menu\\ Extras/User.menu/Contents/Resources/CGSession -suspend', resolve)
